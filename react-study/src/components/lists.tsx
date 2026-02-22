@@ -10,9 +10,10 @@ export function Lists() {
 
   return (
     <>
-      <div style={{ textAlign: "center" }}>
+      <div style={{ textAlign: "center", border: "1px solid black", marginTop: "20px", padding: "20px", margin: "20px auto", width: "50%" }}>
+        <p>Adicione uma nova tarefa:</p>
         <input
-          style={{ margin: "50px 0 0 50px" }}
+          style={{ margin: "0 0 0 50px" }}
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
