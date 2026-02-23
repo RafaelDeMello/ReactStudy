@@ -1,10 +1,10 @@
-import { useState} from "react";
+import { useEffect, useState } from "react";
 import { Count } from "./components/count";
 import { InputAdd } from "./components/inputAdd";
 import { Lists } from "./components/lists";
 import { TodoItem } from "./components/todoList";
+import { TodoApi, type ITodo } from "./shared/services/api/TodoApi";
 //import { TodoApi } from "./shared/services/api/TodoApi";
-
 
 /* TodoApi.getAll().then(data => console.log('1', data));
 
@@ -20,37 +20,32 @@ TodoApi.getAll().then(data => console.log('4', data));
 */
 
 export function App() {
+  const [list, setList] = useState<ITodo[]>([]);
 
-  const [list, setList] = useState([
-      { id: "1", label: "Fazer café", complete: false },
-      { id: "2", label: "Fazer almoço", complete: false },
-      { id: "3", label: "Fazer jantar", complete: false },
-    ]);
+  useEffect(() => {
+    TodoApi.getAll()
+    .then(data => setList(data));
+  }, []);
 
+  const handleAdd = (value: string) => {
+    TodoApi.create({ label: value, complete: false })
+    .then(data => { 
+      setList([...list, data]);
+    });
+  };
 
+  const handleRemove = (id: string) => {
+    setList([...list.filter((item) => item.id !== id)]);
+  };
 
-  
-    const handleAdd = (value: string) => {
-       setList([
-                ...list,
-                { id: (list.length + 1).toString(), label: value, complete: false },
-              ]);
-    }
-  
-    const handleRemove = (id: string) => {
-       setList([
-        ...list.filter(item => item.id !== id)
-       ])
-    }
-  
   const handleComplete = (id: string) => {
-       setList([
-        ...list.map(item => ({
-          ...item,
-          complete: item.id === id ? true : item.complete
-        }))
-       ])
-    }
+    setList([
+      ...list.map((item) => ({
+        ...item,
+        complete: item.id === id ? true : item.complete,
+      })),
+    ]);
+  };
 
   return (
     <>
@@ -78,18 +73,16 @@ export function App() {
               }}
             >
               <Lists>
-                
-                  {list.map((listItem) => (
-                    <TodoItem
-                      key={listItem.id}
-                      id={listItem.id}
-                      label={listItem.label}
-                      complete={listItem.complete}
-                      onComplete={() => handleComplete(listItem.id)}
-                      onRemove={() => handleRemove(listItem.id)}
-                    />
-                  ))}
-                
+                {list.map((listItem) => (
+                  <TodoItem
+                    key={listItem.id}
+                    id={listItem.id}
+                    label={listItem.label}
+                    complete={listItem.complete}
+                    onComplete={() => handleComplete(listItem.id)}
+                    onRemove={() => handleRemove(listItem.id)}
+                  />
+                ))}
               </Lists>
             </div>
           </div>
