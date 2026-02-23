@@ -1,8 +1,23 @@
-import { useState } from "react";
+import { useState} from "react";
 import { Count } from "./components/count";
 import { InputAdd } from "./components/inputAdd";
 import { Lists } from "./components/lists";
 import { TodoItem } from "./components/todoList";
+//import { TodoApi } from "./shared/services/api/TodoApi";
+
+
+/* TodoApi.getAll().then(data => console.log('1', data));
+
+TodoApi.create({label: 'Fazer café', complete: false});
+TodoApi.create({label: 'Fazer Almoço', complete: false});
+TodoApi.getAll().then(data => console.log('2', data));
+
+TodoApi.complete('1', {label: 'fazer Janta', complete: false})
+TodoApi.getAll().then(data => console.log('3', data));
+
+TodoApi.remove('1')
+TodoApi.getAll().then(data => console.log('4', data));
+*/
 
 export function App() {
 
@@ -11,6 +26,9 @@ export function App() {
       { id: "2", label: "Fazer almoço", complete: false },
       { id: "3", label: "Fazer jantar", complete: false },
     ]);
+
+
+
   
     const handleAdd = (value: string) => {
        setList([
