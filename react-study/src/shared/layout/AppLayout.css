@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+    font-family: poppins, sans-serif;
+}
+
+
+.layout-base {
+   background-color: rgb(214, 212, 212);
+    min-height: 100vh;
+}
+
+.layout-header {
+   padding: 5px;
+   background-color: blue;
+   display: flex;
+   justify-content: center;
+   gap: 8px;
+   color: white;
+   cursor: pointer;
+   transition: all 0.2s ease-in-out;
+}
+
+.layout-header a:hover {
+   text-decoration: none;
+}
+    
+.button-header{
+    padding: 15px 15px;
+    border: none;
+    border-radius: 75px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.button-header:hover {
+    background-color: rgb(19, 116, 206);
+}
+
+.border-todo {
+    text-align: center;
+    border: 1px solid black;
+    margin-top: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 50%;
+}
