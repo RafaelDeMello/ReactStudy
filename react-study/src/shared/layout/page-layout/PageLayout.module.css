@@ -1,4 +1,22 @@
 
 .PageLayoutContainer{
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.PageLayoutTitle{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.PageLayoutContent{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid black;
+    margin-top: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 50%;
 }

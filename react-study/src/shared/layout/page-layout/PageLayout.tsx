@@ -9,10 +9,10 @@ interface IPageLayoutProps {
 export const PageLayout = ({ children, title }: IPageLayoutProps) => {
   return (
     <div className={PageLayoutStyles.PageLayoutContainer}>
-      <div>
+      <div className={PageLayoutStyles.PageLayoutTitle}>
         <h1>{title}</h1>
       </div>
-      <div>
+      <div className={PageLayoutStyles.PageLayoutContent}>
         {children}
       </div>
     </div>

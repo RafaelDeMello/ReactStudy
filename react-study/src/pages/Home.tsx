@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Count } from "../components/count";
+
 import { InputAdd } from "../components/inputAdd";
 import { Lists } from "../components/lists";
 import { TodoItem } from "../components/todoList";
@@ -49,10 +49,7 @@ export const Home = () => {
       return (
         <>
           <PageLayout title="Home">
-            <div style={{ textAlign: "center", marginTop: "20px" }}>
-              <Count />
-            </div>
-            <div className="border-todo">
+            <div>
                   <InputAdd onAdd={handleAdd} />
                   <div
                     style={{
