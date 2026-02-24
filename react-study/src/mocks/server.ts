@@ -20,7 +20,6 @@ createServer({
     this.get("/todos", (schema) => {
       return schema.all("todos");
     });
-
     this.post("/todos", (schema, request) => {
         const attrs = JSON.parse(request.requestBody)
 

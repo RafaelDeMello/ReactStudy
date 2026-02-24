@@ -35,16 +35,24 @@ export function App() {
   };
 
   const handleRemove = (id: string) => {
-    setList([...list.filter((item) => item.id !== id)]);
+    TodoApi.remove(id)
+    .then(() => {
+      setList([
+        ...list.filter(item => item.id !== id),
+      ]);
+    });
   };
 
   const handleComplete = (id: string) => {
-    setList([
-      ...list.map((item) => ({
-        ...item,
-        complete: item.id === id ? true : item.complete,
-      })),
-    ]);
+     TodoApi.complete(id, { complete: true})
+     .then(() => {
+      setList([
+        ...list.map(item => ({
+          ...item,
+          complete: item.id === id? true : item.complete
+        }))
+      ])
+     }) 
   };
 
   return (
