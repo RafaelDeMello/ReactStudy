@@ -1,5 +1,4 @@
-
-import TodoListStyleProps from "./TodoListStyleProps.css"
+import "./todoListStyle.css"
 
 interface ITodoItemProps {
     id: string;
@@ -8,41 +7,24 @@ interface ITodoItemProps {
 
     onComplete: () => void;
     onRemove: () => void;
-}
+};
 
-interface ITodoListStyleProps {
-  title: string;
-  children: React.ReactNode;
-}
-
-export const TodoItem = ({ id, label, complete, onComplete, onRemove }: ITodoItemProps, { title, children }: ITodoListStyleProps) => {
+export const TodoItem = ({ id, label, complete, onComplete, onRemove }: ITodoItemProps) => {
   return (
-    <li
+    <li 
       key={id}
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginBottom: "8px",
-      }}
+      className="listStyle"
     >
       {label}
       {complete && " (Concluído)"}
-      <div
-        style={{
-          display: "inline-flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "0 8px",
-        }}
+      <div className="buttonStyle"
       >
-        <button
+        <button className="Btn-concluir"
           onClick={onComplete}
         >
           Concluir
         </button>
-        <button
+        <button  className="Btn-remover"
           onClick={onRemove}
         >
           Remover
