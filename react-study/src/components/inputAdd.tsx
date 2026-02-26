@@ -1,3 +1,4 @@
+import "./inputAddLayout.css"
 import { useState } from "react";
 
 interface InputAddProps {
@@ -16,13 +17,12 @@ export function InputAdd( props: InputAddProps) {
   return (
     <div>
       <p>Adicione uma nova tarefa:</p>
-        <input
-          style={{ margin: "0 0 0 50px" }}
+        <input className="inputLayout"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
 
-        <button
+        <button className="Btn-add"
           onClick={() => {
             if (value == "") {
               alert("O campo não pode ser vazio");

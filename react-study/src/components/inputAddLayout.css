@@ -1,0 +1,22 @@
+.inputLayout{
+  margin: 0 0 0 50px;
+}
+
+
+
+.Btn-add{
+    background-color: blue; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 75px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.Btn-add:hover {
+    background-color: rgb(19, 116, 206);
+}
