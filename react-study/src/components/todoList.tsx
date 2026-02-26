@@ -1,4 +1,6 @@
 
+import TodoListStyleProps from "./TodoListStyleProps.css"
+
 interface ITodoItemProps {
     id: string;
     label: string;
@@ -8,7 +10,12 @@ interface ITodoItemProps {
     onRemove: () => void;
 }
 
-export const TodoItem = ({ id, label, complete, onComplete, onRemove }: ITodoItemProps) => {
+interface ITodoListStyleProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+export const TodoItem = ({ id, label, complete, onComplete, onRemove }: ITodoItemProps, { title, children }: ITodoListStyleProps) => {
   return (
     <li
       key={id}
