@@ -40,3 +40,6 @@
 .Btn-remover:hover {
   background-color: #da190b; /* Darker red */
 }
+.concluido{
+  text-decoration: line-through;
+}

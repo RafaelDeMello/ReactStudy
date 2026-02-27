@@ -9,27 +9,26 @@ interface ITodoItemProps {
     onRemove: () => void;
 };
 
-export const TodoItem = ({ id, label, complete, onComplete, onRemove }: ITodoItemProps) => {
+export const TodoItem = ({ label, complete, onComplete, onRemove }: ITodoItemProps) => {
   return (
-    <li 
-      key={id}
+    <li
       className="listStyle"
     >
-      {label}
-      {complete && " (Concluído)"}
-      <div className="buttonStyle"
-      >
-        <button className="Btn-concluir"
-          onClick={onComplete}
-        >
-          Concluir
-        </button>
-        <button  className="Btn-remover"
-          onClick={onRemove}
-        >
-          Remover
-        </button>
-      </div>
-    </li>
+      <span className={complete ? "concluido" : ""}>{label}</span>
+    
+          <div className="buttonStyle">
+            <button className="Btn-concluir"
+              onClick={onComplete}
+            >
+              Concluir
+            </button>
+            <button className="Btn-remover"
+              onClick={onRemove}
+            >
+              Remover
+            </button>
+          </div>
+     
+  </li>
   );
 };
