@@ -1,8 +1,11 @@
 .listStyle{
-   display: flex; 
-   justify-content: space-between;
-   align-items: center;
+   list-style: none;
    margin-bottom: 8px;  
+}
+.itemRow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .buttonStyle{
   display: inline-flex;

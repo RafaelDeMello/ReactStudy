@@ -14,9 +14,9 @@ export const TodoItem = ({ label, complete, onComplete, onRemove }: ITodoItemPro
     <li
       className="listStyle"
     >
-      <span className={complete ? "concluido" : ""}>{label}</span>
-    
-          <div className="buttonStyle">
+      <div className="itemRow">
+        <span className={complete ? "concluido" : ""}>{label}</span>
+        <div className="buttonStyle">
             <button className="Btn-concluir"
               onClick={onComplete}
             >
@@ -27,7 +27,8 @@ export const TodoItem = ({ label, complete, onComplete, onRemove }: ITodoItemPro
             >
               Remover
             </button>
-          </div>
+        </div>
+      </div>
      
   </li>
   );

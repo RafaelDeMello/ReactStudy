@@ -1,9 +1,9 @@
 export const Lists = ({ children }: { children: React.ReactNode }) => { 
   return (
     <>
-          <ol>
+          <ul>
             {children}
-          </ol>
+          </ul>
     </>
   );
 }
