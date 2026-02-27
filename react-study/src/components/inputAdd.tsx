@@ -13,26 +13,28 @@ export function InputAdd( props: InputAddProps) {
         props.onAdd(value);
         setValue('');
     }
-
+     
   return (
     <div>
-      <p>Adicione uma nova tarefa:</p>
-        <input className="inputLayout"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-        />
+      <form>
+        <p>Adicione uma nova tarefa:</p>
+          <input className="inputLayout"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
 
-        <button className="Btn-add"
-          onClick={() => {
-            if (value == "") {
-              alert("O campo não pode ser vazio");
-              return;
-            }
-            handleAdd();
-          }}
-        >
-          Adicionar
-        </button>
+          />
+          <button className="Btn-add"
+            onClick={() => {
+              if (value == "") {
+                alert("O campo não pode ser vazio");
+                return;
+              }
+              handleAdd();
+            }}
+          >
+            Adicionar
+          </button>
+      </form>
     </div>
   );
 }
