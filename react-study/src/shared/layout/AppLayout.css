@@ -38,12 +38,3 @@ body{
 .button-header:hover {
     background-color: rgb(19, 116, 206);
 }
-
-.border-todo {
-    text-align: center;
-    border: 1px solid black;
-    margin-top: 20px;
-    padding: 20px;
-    margin: 20px auto;
-    width: 50%;
-}

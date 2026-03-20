@@ -15,7 +15,7 @@ export function InputAdd( props: InputAddProps) {
     }
      
   return (
-    <div>
+    <div className="imputDivLayout">
       <form>
         <p>Adicione uma nova tarefa:</p>
           <input className="inputLayout"

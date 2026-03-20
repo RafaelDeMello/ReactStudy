@@ -1,22 +1,14 @@
 import { useState } from "react";
 
 export function Count() {
-  const [count, setCount] = useState(0);
-
-  const handleClick = () => {
-    setCount((prev) => prev + 1);
-  };
-
+ 
+   const [count, setCount] = useState(0);
 
   return (
     <div>
-      <button
-        onClick={() => {
-          handleClick();
-        }}
-      >
-        {count}
-      </button>
+      <button onClick={() => setCount(count + 1)}>Adicionar</button>
+      <button onClick={() => setCount(count - 1)}>Remover</button>
+      <p>Contador: {count}</p>
     </div>
   );
 }

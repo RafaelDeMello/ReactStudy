@@ -7,6 +7,7 @@ export const AppLayout = ({ children }: React.PropsWithChildren) => {
         <div className="layout-base">
             <div className="layout-header"> 
                 <button className="button-header"><a>Home</a></button>
+                <button className="button-header"><a>Sobre</a></button>
                 <button className="button-header"><a>Usuários</a></button>
             </div>
 
