@@ -2,6 +2,21 @@
 
 import { useState } from "react"
 
+interface ICardProps {
+  title: string,
+}
+
+const Card = (props: ICardProps) => {
+  return(
+    <>
+     <div className="border mt-1">
+      <div>{props.title}</div>
+      <div>Card</div>
+      <div>Footer</div>
+     </div>
+    </>
+  )
+}
 
 export function App () {
 
@@ -9,9 +24,15 @@ const [count, setCount] = useState(0)
 
   return(
     <>
-     <div className="flex justify-center mt-7">
-      <button className="bg-purple-500 flex p-1 border rounded-full" onClick={()=> {setCount(count + 1)}}>{count}</button>
+     <div className="flex flex-col justify-center items-center m-7">
+      <div>
+        <button className="bg-purple-500 p-1 border rounded-full" onClick={()=> {setCount(count + 1)}}>{count}</button>
+      </div>
+      <Card title="Titulo 1"/>
+      <Card title="Titulo 2"/>
+      <Card title="Titulo 3"/>
      </div>
+     
     </>
   )
 }
