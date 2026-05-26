@@ -1,38 +1,38 @@
 // componente app com contador
 
 import { useState } from "react"
-
+//declarar interface props
 interface ICardProps {
-  title: string,
+  title: string;
 }
+
+// Declarar componente car
 
 const Card = (props: ICardProps) => {
   return(
     <>
-     <div className="border mt-1">
-      <div>{props.title}</div>
-      <div>Card</div>
-      <div>Footer</div>
-     </div>
+      <div>
+        <div>{props.title}</div>
+        <div>Card</div>
+        <div>Footer</div>
+      </div>
     </>
   )
 }
 
 export function App () {
-
-const [count, setCount] = useState(0)
-
+  
+  const [count, setCount] = useState(0)
+ 
   return(
     <>
-     <div className="flex flex-col justify-center items-center m-7">
-      <div>
-        <button className="bg-purple-500 p-1 border rounded-full" onClick={()=> {setCount(count + 1)}}>{count}</button>
+    <div>
+       <div>
+          <button onClick={()=>{setCount(count + 1)}}>{count}</button>
       </div>
-      <Card title="Titulo 1"/>
-      <Card title="Titulo 2"/>
-      <Card title="Titulo 3"/>
-     </div>
-     
+      <Card title="Card 1"/>
+      <Card title="Card 2"/> 
+    </div>
     </>
   )
 }
