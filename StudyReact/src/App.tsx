@@ -2,43 +2,49 @@
 
 import { useState } from "react"
 
+
 export function App () {
 
 const [count, setCount] = useState(0)
 
   return(
     <>
-     <button onClick={()=> {setCount(count + 1)}}>{count}</button>
+     <div className="flex justify-center mt-7">
+      <button className="bg-purple-500 flex p-1 border rounded-full" onClick={()=> {setCount(count + 1)}}>{count}</button>
+     </div>
     </>
   )
 }
 
 //Funcao JS
-const teste = () => {
+const teste = () =>{
   return 1 + 1
 }
 
 //Funcao JS
-const useTest = () => {
+const useTeste = () => {
   return 1 + 1
 }
 
 //REACT HOOK
-const useTeste = () => {
-    const [value] = useState(1 + 1)
-    return value
+
+const useTestes = () => {
+  const [valor] = useState(1 + 1)
+  return valor
 }
+
+
 //Funcao JS que retorna HTML
-const testes = () => {
-  return (
-    <div>HTML</div>
+const testess = () => {
+  return(
+    <div>hello</div>
   )
 }
 
 //Componente funcional HTMl
-const Test = () => {
-  return (
-    <div>HTML </div>
+const Testes = () =>{
+  return(
+    <div>Hello</div>
   )
 }
 
