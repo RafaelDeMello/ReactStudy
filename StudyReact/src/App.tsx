@@ -1,73 +1,78 @@
 // componente app com contador
 
-import { useState } from "react"
+import React, { useState } from "react"
+
+
 //declarar interface props
 interface ICardProps {
-  title: string;
+  tittle: string;
+  children: React.ReactNode;
 }
 
 // Declarar componente car
-
 const Card = (props: ICardProps) => {
   return(
-    <>
-      <div>
-        <div>{props.title}</div>
-        <div>Card</div>
-        <div>Footer</div>
-      </div>
-    </>
+    <div className="flex flex-col p-5 border-2 gap-1">
+      <div>{props.tittle}</div>
+      <div>{props.children}</div>
+      <div>Footer</div>
+    </div>
   )
 }
 
-export function App () {
-  
+
+export function App(){
+
   const [count, setCount] = useState(0)
- 
+
   return(
     <>
-    <div>
-       <div>
-          <button onClick={()=>{setCount(count + 1)}}>{count}</button>
-      </div>
-      <Card title="Card 1"/>
-      <Card title="Card 2"/> 
+     <div className="flex flex-col items-center m-1 gap-2">
+      <Card tittle="Titulo 1">
+        Card1
+      </Card>
+      <Card tittle="Titulo 2">
+        Card 2
+      </Card>
+      <Card tittle="Count">
+        <div className="flex bg-black text-white items-center justify-center rounded-2xl">
+          <button onClick={() => {setCount(count + 1)}}>{count}</button>
+        </div>
+      </Card>
     </div>
     </>
   )
 }
 
 //Funcao JS
-const teste = () =>{
+const teste = () => {
   return 1 + 1
 }
-
 //Funcao JS
 const useTeste = () => {
   return 1 + 1
 }
 
 //REACT HOOK
-
 const useTestes = () => {
-  const [valor] = useState(1 + 1)
-  return valor
+    const [valor] = useState(1+1)
+    return valor
 }
-
 
 //Funcao JS que retorna HTML
-const testess = () => {
-  return(
-    <div>hello</div>
-  )
-}
-
-//Componente funcional HTMl
-const Testes = () =>{
+const testes = () => {
   return(
     <div>Hello</div>
   )
 }
+
+//Componente funcional HTMl
+const Teste = () => {
+  return(
+    <div>Hello</div>
+  )
+}
+
 
 
 
