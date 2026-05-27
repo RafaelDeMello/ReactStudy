@@ -1,8 +1,6 @@
 // componente app com contador
-
 import React, { useState } from "react"
-
-
+import { Exemplos } from "./componentes/Esboco";
 //declarar interface props
 interface ICardProps {
   tittle: string;
@@ -40,6 +38,7 @@ export function App(){
         </div>
       </Card>
     </div>
+    <Exemplos />
     </>
   )
 }
