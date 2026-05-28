@@ -11,6 +11,9 @@ export function App(){
     <div>
       {hide && <p>Hide</p>}
       {!hide && <p>!Hide</p>}
+      
+      {hide ? <p>teste1</p> : <p>Teste2</p>}
+
       <button onClick={() => {setCount(count + 1)}}>{count}</button>
       <br />
       <button onClick={() => {setHide(!hide)}}>Toggle</button>
