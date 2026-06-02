@@ -17,38 +17,46 @@ const Card = (props: ICardProps) => {
 };
 
 export function Exemplos() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
   const [hide, setHide] = useState(true)
+  const [list, setList] = useState([
+    {id: '1', label: 'Fazer Café'},
+    {id: '2', label: 'Fazer Almoço'},
+    {id: '2', label: 'Fazer Janta'},
+  ])
 
   return (
     <>
-      <div className="flex flex-col items-center p-2 gap-2.5">
+      <div className="flex  flex-col items-center m-5 gap-3">
         <Card tittle="Titulo 1" footer="footer">
           <div>Card 1</div>
         </Card>
-        <Card tittle="Titulo 2" footer="footer">
-          <div>Card 2</div>
-        </Card>
-        <Card tittle="Count" footer="">
-          <div className="flex items-center justify-center bg-black text-white rounded-3xl">
-            <button
-              onClick={() => {
-                setCount(count + 1);
-              }}
-            >
-              {count}
-            </button>
+        <Card tittle="Count" footer="Footer"> 
+          <div>
+            <button className="border rounded-3xl p-1 bg-black text-white" onClick={() => (setCount(count + 1))}>{count}</button>
           </div>
         </Card>
         <Card tittle="SetHide or Hide" footer="Done">
           <div className="flex flex-col items-center">
-            {hide && <p>HELLO WORLD</p>}
-            {!hide && <p>DESTROYER WORLD</p>}
-            {hide ? <p>TRUE</p> : <p>FALSE</p>}
-            <button className="border p-1 rounded-2xl bg-black text-white" onClick={() => {setHide(!hide)}}> Alert </button>
+            {hide ? <p>Hello World</p> : <p>Bye World</p>}
+          <button className="border rounded-3xl p-1 bg-black text-white" onClick={() => {setHide(!hide)}}>Click</button>
           </div>
-        </Card>
+       </Card>
+        <div className="border-black">
+          <div>
+             <input className="border" /> <button className="border px-1">Add task</button>
+          </div>
+          <div className="border p-3">
+            <ol>
+              {list.map((listItem) =>
+              <li key={listItem.id}>
+                 {listItem.label}
+              </li>)}
+            </ol>
+         </div>
+        </div>
       </div>
+
     </>
   );
 }
