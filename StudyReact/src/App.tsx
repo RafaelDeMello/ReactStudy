@@ -15,15 +15,14 @@ export function App() {
            value={value}
            onChange={(e) => {
             setValue(e.target.value)
-           }} 
-           
+           }}
           />
           <button
             className="border rounded-3xl px-3"
             onClick={() => {
               setList([
                 ...list,
-                { id: (list.length + 1).toString(), label: value }
+                { id: (list.length + 1).toString(), label: value}
               ])
               setValue("")
             }}
