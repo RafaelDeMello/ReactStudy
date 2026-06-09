@@ -23,7 +23,7 @@ export function App() {
             onClick={() => {
               setList([
                 ...list,
-                { id: (list.length + 1).toString(), label: value},
+                {id: (list.length + 1).toString(), label: value}
               ])
               setValue('')
             }}
@@ -32,9 +32,9 @@ export function App() {
           </button>
         </div>
         <ol>
-          {list.map((listItem) => (
+          {list.map((listItem) => 
             <li key={listItem.id}>{listItem.label}</li>
-          ))}
+          )}
         </ol>
       </div>
     </>
