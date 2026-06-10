@@ -1,40 +1,55 @@
 import { useState } from "react";
 
 export function App() {
-
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState("");
   const [list, setList] = useState([
-    {id: '1' , label: 'Tarefa 1'},
-    {id: '2' , label: 'Tarefa 2'},
-  ])
+    { id: "1", label: "Tarefa 1" },
+    { id: "2", label: "Tarefa 2" },
+  ]);
 
   return (
     <>
       <div className="flex flex-col items-center">
         <div className="flex gap-2 mt-3">
-          <input className="border-2" 
+          <input
+            className="border-2"
             value={value}
             onChange={(e) => {
-              setValue(e.target.value)
+              setValue(e.target.value);
             }}
           />
           <button
             className="border rounded-3xl px-3"
             onClick={() => {
-              setList([
+              if(!value){
+                 alert("Insira um valor!")
+              }else{
+                  setList([
                 ...list,
-                {id: (list.length + 1).toString(), label: value}
-              ])
-              setValue('')
+                { id: (list.length + 1).toString(), label: value },
+              ]);
+              setValue("");
+              }
+             
             }}
           >
-            Adicionar tarefa
+            Add Task
           </button>
         </div>
         <ol>
-          {list.map((listItem) => 
-            <li key={listItem.id}>{listItem.label}</li>
-          )}
+          {list.map((listItem) => (
+            <li key={listItem.id}>
+              {listItem.label}
+              <button
+                className="border rounded-3xl px-3 m-2"
+                onClick={() => {
+                  setList([...list]);
+                }}
+              >
+                Remove task
+              </button>
+            </li>
+          ))}
         </ol>
       </div>
     </>
