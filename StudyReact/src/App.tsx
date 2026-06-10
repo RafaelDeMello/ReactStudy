@@ -30,7 +30,6 @@ export function App() {
               ]);
               setValue("");
               }
-             
             }}
           >
             Add Task
