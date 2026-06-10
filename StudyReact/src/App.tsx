@@ -3,8 +3,8 @@ import { useState } from "react";
 export function App() {
   const [value, setValue] = useState("");
   const [list, setList] = useState([
-    { id: "1", label: "Tarefa 1" },
-    { id: "2", label: "Tarefa 2" },
+    { id: "1", label: "Tarefa 1", complete: false},
+    { id: "2", label: "Tarefa 2", complete: false},
   ]);
 
   return (
@@ -22,14 +22,15 @@ export function App() {
             className="border rounded-3xl px-3"
             onClick={() => {
               if(!value){
-                 alert("Insira um valor!")
-              }else{
-                  setList([
+                  alert('Insira um valor!')
+              } else {
+                 setList([
                 ...list,
-                { id: (list.length + 1).toString(), label: value },
+                { id: (list.length + 1).toString(), label: value, complete: false},
               ]);
               setValue("");
               }
+      
             }}
           >
             Add Task
@@ -39,13 +40,22 @@ export function App() {
           {list.map((listItem) => (
             <li key={listItem.id}>
               {listItem.label}
+              {listItem.complete ? "Concluido" : ""}
               <button
                 className="border rounded-3xl px-3 m-2"
                 onClick={() => {
-                  setList([...list]);
+                  setList([...list.filter(item => item.id !== listItem.id)]);
                 }}
               >
                 Remove task
+              </button>
+              <button
+                className="border rounded-3xl px-3 m-2"
+                onClick={() => {
+                  setList([...list.map(item => ({...item, complete: true}))]);
+                }}
+              >
+                Completed task
               </button>
             </li>
           ))}
