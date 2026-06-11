@@ -3,8 +3,8 @@ import { useState } from "react";
 export function App() {
   const [value, setValue] = useState("");
   const [list, setList] = useState([
-    { id: "1", label: "task 1", complete: false },
-    { id: "2", label: "task 2", complete: false },
+    { id: "1", label: "Task 1", complete: false },
+    { id: "2", label: "Task 2", complete: false },
   ]);
 
   return (
@@ -13,6 +13,7 @@ export function App() {
         <div className="flex gap-2 mt-3">
           <input
             className="border"
+            value={value}
             onChange={(e) => {
               setValue(e.target.value);
             }}
@@ -41,7 +42,7 @@ export function App() {
           {list.map((listItem) => (
             <li key={listItem.id}>
               {listItem.label}
-              {listItem.complete ? " [V]" : ""}
+              {listItem.complete ? " [v]" : ""}
               <button
                 className="border rounded-3xl px-3 m-2"
                 onClick={() => {
@@ -53,15 +54,15 @@ export function App() {
                   ]);
                 }}
               >
-                [v]
+                v
               </button>
               <button className="border rounded-3xl px-3 m-2"
-              onClick={() => {
-                setList([
-                  ...list.filter(item => item.id !== listItem.id)
-                ])
-              }}
-              >[x]</button>
+                onClick={() => {
+                  setList([
+                    ...list.filter(item => item.id !== listItem.id)
+                  ])
+                }}
+              >x</button>
             </li>
           ))}
         </ol>
