@@ -5,6 +5,7 @@ export function App() {
   const [list, setList] = useState([
     { id: "1", label: "Task 1", complete: false },
     { id: "2", label: "Task 2", complete: false },
+    { id: "3", label: "Task 3", complete: false },
   ]);
 
   return (
@@ -46,13 +47,12 @@ export function App() {
               <button
                 className="border rounded-3xl px-3 m-2"
                 onClick={() => {
-                  setList([
-                    ...list.map((item) => ({
-                      ...item,
-                      complete:
-                        item.id === listItem.id ? true : item.complete,
-                    })),
-                  ]);
+                    setList([
+                      ...list.map((item) => ({
+                        ...item,
+                        complete: item.id == listItem.id ? true : item.complete
+                      }))
+                    ])
                 }}
               >
                 v
@@ -60,7 +60,7 @@ export function App() {
               <button className="border rounded-3xl px-3 m-2"
                  onClick={() => {
                   setList([
-                    ...list.filter(item => item.id != listItem.id)
+                    ...list.filter(item => item.id !== listItem.id)
                   ])
                  }}
               >x</button>
