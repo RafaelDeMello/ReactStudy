@@ -50,7 +50,7 @@ export function App() {
                     setList([
                       ...list.map((item) => ({
                         ...item,
-                        complete: item.id == listItem.id ? true : item.complete
+                        complete: item.id === listItem.id ? true : item.complete
                       }))
                     ])
                 }}
@@ -60,7 +60,7 @@ export function App() {
               <button className="border rounded-3xl px-3 m-2"
                  onClick={() => {
                   setList([
-                    ...list.filter(item => item.id !== listItem.id)
+                    ...list.filter( item => item.id !== listItem.id)
                   ])
                  }}
               >x</button>
