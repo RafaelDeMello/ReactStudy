@@ -57,6 +57,10 @@ export function Exemplos() {
             <button
               className="border p-1 m-1 rounded-3xl bg-black text-white"
               onClick={() => {
+                if(!value){
+                  alert('Insira um valor!')
+                  return
+                }
                 setList([
                   ...list,
                   {
