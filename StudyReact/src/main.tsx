@@ -5,6 +5,6 @@ import './index.css'
 import { Exemplos } from './componentes/Esboco.tsx'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <Exemplos />
   </StrictMode>,
 )
