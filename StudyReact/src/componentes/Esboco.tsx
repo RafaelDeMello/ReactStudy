@@ -27,6 +27,38 @@ export function Exemplos() {
     { id: "2", label: "Task 2", complete: false },
   ]);
 
+  const handleCount = () => {
+    setCount(count + 1);
+  };
+
+  const handleAdd = () => {
+    if (!value) {
+      alert("Insira um valor!");
+      return;
+    }
+    setList([
+      ...list,
+      {
+        id: (list.length + 1).toString(),
+        label: value,
+        complete: false,
+      },
+    ]);
+  };
+
+  const handleCompleteItem = () => {
+    setList([
+      ...list.map((item) => ({
+        ...item,
+        complete: item.id == listItem.id ? true : item.complete,
+      })),
+    ]);
+  };
+
+  const handleRemoveItem = () => {
+    
+  }
+
   return (
     <div className="p-2">
       <Card title="Card 1" footer="Footer">
@@ -36,9 +68,7 @@ export function Exemplos() {
       <Card title="Count" footer="SetCount">
         <button
           className="border rounded-3xl bg-black text-white"
-          onClick={() => {
-            setCount(count + 1);
-          }}
+          onClick={handleCount}
         >
           {count}
         </button>
@@ -56,20 +86,7 @@ export function Exemplos() {
             />
             <button
               className="border p-1 m-1 rounded-3xl bg-black text-white"
-              onClick={() => {
-                if(!value){
-                  alert('Insira um valor!')
-                  return
-                }
-                setList([
-                  ...list,
-                  {
-                    id: (list.length + 1).toString(),
-                    label: value,
-                    complete: false,
-                  },
-                ]);
-              }}
+              onClick={handleAdd}
             >
               Add
             </button>
@@ -80,23 +97,14 @@ export function Exemplos() {
               {listItem.complete ? " [V]" : ""}
               <button
                 className="border p-1 m-1 rounded-3xl bg-black text-white"
-                onClick={() => {
-                  setList([
-                    ...list.map((item) => ({
-                      ...item,
-                      complete: item.id == listItem.id ? true : item.complete
-                    }))
-                  ])
-                }}
+                onClick={handleCompleteItem}
               >
                 v
               </button>
               <button
                 className="border p-1 m-1 rounded-3xl bg-black text-white"
                 onClick={() => {
-                  setList([
-                    ...list.filter(item => item.id !== listItem.id)
-                  ])
+                  setList([...list.filter((item) => item.id !== listItem.id)]);
                 }}
               >
                 x
