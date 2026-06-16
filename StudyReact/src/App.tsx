@@ -12,15 +12,13 @@ export function App() {
     <>
       <div className="flex flex-col items-center">
         <div className="flex gap-2 mt-3">
-          <InputAdd 
-           
-           onAdd={(value) => {
-            setList([
-              ...list,
-              {id: (list.length + 1).toString(), label: value, complete: false}
-            ])
-           }}
-
+          <InputAdd
+             onAdd={(value) => {
+              setList([
+                ...list,
+                {id: (list.length + 1).toString(), label: value, complete: false}
+              ])
+             }}
           />
           
         </div>
@@ -32,21 +30,21 @@ export function App() {
               <button
                 className="border rounded-3xl px-3 m-2"
                 onClick={() => {
-                    setList([
-                      ...list.map((item) => ({
-                        ...item,
-                        complete: item.id === listItem.id ? true : item.complete
-                      }))
-                    ])
+                  setList([
+                    ...list.map((item) => ({
+                      ...item,
+                      complete: item.id === listItem.id ? true : item.complete
+                    }))
+                  ])
                 }}
               >
                 v
               </button>
               <button className="border rounded-3xl px-3 m-2"
                  onClick={() => {
-                  setList([
-                    ...list.filter( item => item.id !== listItem.id)
-                  ])
+                   setList([
+                    ...list.filter(item => item.id !== listItem.id)
+                   ])
                  }}
               >x</button>
             </li>

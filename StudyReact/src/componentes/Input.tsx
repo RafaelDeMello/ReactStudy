@@ -1,7 +1,8 @@
 import { useState } from "react";
 
+
 interface IInputAddProps {
-    onAdd(value: string): void;
+  onAdd(value): void
 }
 
 export const InputAdd = (props: IInputAddProps) => {
@@ -14,18 +15,18 @@ export const InputAdd = (props: IInputAddProps) => {
             className="border"
             value={value}
             onChange={(e) => {
-              setValue(e.target.value);
+              setValue(e.target.value)
             }}
           />
           <button
             className="border rounded-3xl px-3 m-2"
             onClick={() => {
-              if (!value) {
-                alert("Insert Task!");
-                return;
+              if(!value){
+                alert('Insira uma Task!')
+                return
               }
               props.onAdd(value);
-              setValue('');
+              setValue('')
             }}
           >
             Add Task
