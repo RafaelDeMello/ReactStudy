@@ -55,9 +55,7 @@ export function Exemplos() {
     ]);
   };
 
-  const handleRemoveItem = () => {
-    
-  }
+
 
   return (
     <div className="p-2">

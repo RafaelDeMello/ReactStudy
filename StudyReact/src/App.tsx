@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { InputAdd } from "./componentes/Input";
+import { TodoItem } from "./componentes/todItem";
 
 export function App() {
   const [list, setList] = useState([
@@ -10,46 +11,42 @@ export function App() {
 
   const handleAdd = (value: string) => {
     setList([
-       ...list,
-      {id: (list.length + 1).toString(), label: value, complete: false}
-    ])
-  }
-  
+      ...list,
+      { id: (list.length + 1).toString(), label: value, complete: false },
+    ]);
+  };
+
+  const handleCompleteItem = () => {};
+
+  const handleRemoveItem = () => {};
+
   return (
     <>
       <div className="flex flex-col items-center">
         <div className="flex gap-2 mt-3">
-          <InputAdd
-            onAdd={handleAdd}
-          />
+          <InputAdd onAdd={handleAdd} />
         </div>
         <ol>
           {list.map((listItem) => (
-            <li key={listItem.id}>
-              {listItem.label}
-              {listItem.complete ? " [v]" : ""}
-              <button
-                className="border rounded-3xl px-3 m-2"
-                onClick={() => {
-                  setList([
-                    ...list.map((item) => ({
-                      ...item,
-                      complete: item.id === listItem.id ? true : item.complete,
-                    })),
-                  ]);
-                }}
-              >
-                v
-              </button>
-              <button
-                className="border rounded-3xl px-3 m-2"
-                onClick={() => {
-                  setList([...list.filter((item) => item.id !== listItem.id)]);
-                }}
-              >
-                x
-              </button>
-            </li>
+            <TodoItem
+              key={listItem.id}
+              id={listItem.id}
+              label={listItem.label}
+              complete={listItem.complete}
+              onComplete={() => {
+                setList([
+                  ...list.map((item) => ({
+                    ...item,
+                    complete: item == listItem ? true : item.complete
+                  })),
+                ]);
+              }}
+              onRemove={() => {
+                setList([
+                  ...list.filter(item => item !== listItem)
+                ])
+              }}
+            />
           ))}
         </ol>
       </div>
