@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { InputAdd } from "./componentes/Input";
-import { TodoItem } from "./componentes/todItem";
+import { TodoItem } from "./componentes/todoItem";
 
 export function App() {
   const [list, setList] = useState([
@@ -15,10 +15,6 @@ export function App() {
       { id: (list.length + 1).toString(), label: value, complete: false },
     ]);
   };
-
-  const handleCompleteItem = () => {};
-
-  const handleRemoveItem = () => {};
 
   return (
     <>
@@ -37,14 +33,13 @@ export function App() {
                 setList([
                   ...list.map((item) => ({
                     ...item,
-                    complete: item == listItem ? true : item.complete
+                    complete: item == listItem ? true : item.complete,
                   })),
                 ]);
               }}
               onRemove={() => {
                 setList([
-                  ...list.filter(item => item !== listItem)
-                ])
+                  ...list.filter((item) => item !== listItem)]);
               }}
             />
           ))}
