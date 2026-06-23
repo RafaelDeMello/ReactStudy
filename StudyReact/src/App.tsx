@@ -29,17 +29,18 @@ export function App() {
               id={listItem.id}
               label={listItem.label}
               complete={listItem.complete}
-              onComplete={() => {
+              onCompleteTask={() => {
                 setList([
                   ...list.map((item) => ({
                     ...item,
-                    complete: item == listItem ? true : item.complete,
-                  })),
-                ]);
+                    complete: item === listItem ? true : item.complete
+                  }))
+                ])
               }}
-              onRemove={() => {
+              onRemoveTask={() => {
                 setList([
-                  ...list.filter((item) => item !== listItem)]);
+                  ...list.filter(item => item !== listItem)
+                ])
               }}
             />
           ))}
