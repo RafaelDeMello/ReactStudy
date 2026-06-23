@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { InputAdd } from "./componentes/Input";
 import { TodoItem } from "./componentes/todoItem";
+import { List } from "./componentes/List";
 
 export function App() {
   const [list, setList] = useState([
@@ -16,35 +17,37 @@ export function App() {
     ]);
   };
 
+  const handleComplete = (id: string) => {
+    setList([
+      ...list.map(item => ({
+        ...item,
+        complete: item.id === id ? true : item.complete
+      }))
+    ])
+  };
+       
+  const handleRemove = (id: string) => {
+    setList([...list.filter((item) => item.id !== id)]);
+  };
+
   return (
     <>
       <div className="flex flex-col items-center">
         <div className="flex gap-2 mt-3">
           <InputAdd onAdd={handleAdd} />
         </div>
-        <ol>
+        <List>
           {list.map((listItem) => (
             <TodoItem
               key={listItem.id}
               id={listItem.id}
               label={listItem.label}
               complete={listItem.complete}
-              onCompleteTask={() => {
-                setList([
-                  ...list.map((item) => ({
-                    ...item,
-                    complete: item === listItem ? true : item.complete
-                  }))
-                ])
-              }}
-              onRemoveTask={() => {
-                setList([
-                  ...list.filter(item => item !== listItem)
-                ])
-              }}
+              onCompleteTask={() => handleComplete(listItem.id)}
+              onRemoveTask={() => handleRemove(listItem.id)}
             />
           ))}
-        </ol>
+        </List>
       </div>
     </>
   );
