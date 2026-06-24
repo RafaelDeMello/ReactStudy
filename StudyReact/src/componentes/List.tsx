@@ -1,10 +1,5 @@
-import type React from "react"
+import type React from "react";
 
-export const List = ({children}: React.PropsWithChildren) => {
-
-    return(
-        <>
-         {children}
-        </>
-    )
-}
+export const List = ({ children }: React.PropsWithChildren) => {
+  return <>{children}</>;
+};
