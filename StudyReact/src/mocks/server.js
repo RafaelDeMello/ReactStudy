@@ -10,35 +10,35 @@ createServer({
         this.namespace = "api";
         
         this.get('/todos', (schema) => {
-            return schema.all('todos')
-        });
+             return schema.all('todo')
+        })
 
         this.post('/todos', (schema, request) => {
-           const attrs = JSON.parse(request.requestBody)
+            const attrs = JSON.parse(request.requestBody)
 
-           const todo = schema.create('todos', attrs)
+            const todo = schema.create('todos', attrs);
 
-           return todo
-        });
+            return todo
+        })
 
         this.put('/todos/:id', (schema, request) => {
-           const id = request.params.id;
+            const id = request.params.id;
 
-           const newAttrs = JSON.parse(request.requestBody)
+            const newAttrs = JSON.parse(request.requestBody)
 
-           const todo = schema.find('todos', id);
-           todo?.update(newAttrs)
+            const todo = schema.find('todos', id)
+            todo?.update(newAttrs)
 
-           return {};
-        });
+            return {}
+        })
 
         this.delete('/todos/:id', (schema, request) => {
             const id = request.params.id;
 
-            const todo = schema.find('todos', id);
+            const todo = schema.find('todos', id)
             todo?.destroy();
 
-            return
+            return {}
         })
     }
 })
