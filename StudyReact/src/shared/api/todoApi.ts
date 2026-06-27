@@ -16,7 +16,7 @@ interface ItodoWithoutId {
 export const TodoApi = {
   async getAll(){
     const response = await axiosInstance.get('/api/todos');
-    
+
     return response.data.todos as ITodo[]
   },
 
