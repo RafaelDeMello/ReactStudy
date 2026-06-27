@@ -15,15 +15,15 @@ interface ItodoWithoutId {
 
 export const TodoApi = {
   async getAll(){
-    const response = await axiosInstance.get('/api/todos');
+    const response = await axiosInstance.get('/api/todos')
 
     return response.data.todos as ITodo[]
   },
 
-  async create(data: ItodoWithoutId) {
-    const response = await axiosInstance.post("/api/todos", data);
+  async create(data: ItodoWithoutId){
+    const response = await axiosInstance.post('/api/todos', data)
 
-    return response.data.todo as ITodo;
+    return response.data.todo as ITodo
   },
 
   async updateById(id: string, data: Partial<ItodoWithoutId>) {

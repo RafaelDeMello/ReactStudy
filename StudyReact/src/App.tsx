@@ -4,18 +4,18 @@ import { TodoItem } from "./componentes/todoItem";
 import { List } from "./componentes/List";
 import { TodoApi } from "./shared/api/todoApi";
 
-TodoApi.getAll().then(data => console.log('1', data));
+TodoApi.getAll().then((data) => console.log("1", data));
 
-TodoApi.create({ label: 'task1', complete: false })
-TodoApi.create({ label: 'task2', complete: false })
+TodoApi.create({ label: "task1", complete: false });
+TodoApi.create({ label: "task2", complete: false });
 
-TodoApi.getAll().then(data => console.log('2', data))
+TodoApi.getAll().then((data) => console.log("2", data));
 
-TodoApi.updateById('1', {label: 'task3', complete: false})
+TodoApi.updateById("1", { label: "task3", complete: false });
 
-TodoApi.getAll().then(data => console.log('3', data))
-TodoApi.deleteById('1')
-TodoApi.getAll().then(data => console.log('4', data))
+TodoApi.getAll().then((data) => console.log("3", data));
+TodoApi.deleteById("1");
+TodoApi.getAll().then((data) => console.log("4", data));
 
 
 export function App() {
@@ -34,13 +34,13 @@ export function App() {
 
   const handleComplete = (id: string) => {
     setList([
-      ...list.map(item => ({
+      ...list.map((item) => ({
         ...item,
-        complete: item.id === id ? true : item.complete
-      }))
-    ])
+        complete: item.id === id ? true : item.complete,
+      })),
+    ]);
   };
-       
+
   const handleRemove = (id: string) => {
     setList([...list.filter((item) => item.id !== id)]);
   };

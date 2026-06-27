@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './mocks/server';
+import './mocks/server.ts';
 import { App } from './App.tsx'
 import './index.css'
 import { Exemplos } from './componentes/Esboco.tsx'

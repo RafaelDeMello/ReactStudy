@@ -1,8 +1,15 @@
-import { createServer, Model } from "miragejs";
+import { createServer, Model, Factory } from "miragejs";
 
 createServer({
   models: {
     todos: Model,
+  },
+
+  factories: {
+    todo: Factory.extend({
+      label: "",
+      complete: false,
+    }),
   },
 
   routes() {
@@ -25,7 +32,7 @@ createServer({
 
       const newAttrs = JSON.parse(request.requestBody);
 
-      const todo = schema.find("/todo", id);
+      const todo = schema.find("todos", id);
       todo?.update(newAttrs);
 
       return {};
@@ -34,7 +41,7 @@ createServer({
     this.delete("/todos/:id", (schema, request) => {
       const id = request.params.id;
 
-      const todo = schema.find("todo", id);
+      const todo = schema.find("todos", id);
       todo?.destroy();
 
       return {};
