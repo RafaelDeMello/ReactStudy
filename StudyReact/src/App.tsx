@@ -2,6 +2,21 @@ import { useState } from "react";
 import { InputAdd } from "./componentes/Input";
 import { TodoItem } from "./componentes/todoItem";
 import { List } from "./componentes/List";
+import { TodoApi } from "./shared/api/todoApi";
+
+TodoApi.getAll().then(data => console.log('1', data));
+
+TodoApi.create({ label: 'task1', complete: false })
+TodoApi.create({ label: 'task2', complete: false })
+
+TodoApi.getAll().then(data => console.log('2', data))
+
+TodoApi.updateById('1', {label: 'task3', complete: false})
+
+TodoApi.getAll().then(data => console.log('3', data))
+TodoApi.deleteById('1')
+TodoApi.getAll().then(data => console.log('4', data))
+
 
 export function App() {
   const [list, setList] = useState([

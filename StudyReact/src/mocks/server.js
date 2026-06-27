@@ -25,16 +25,15 @@ createServer({
 
       const newAttrs = JSON.parse(request.requestBody);
 
-      const todo = schema.find("todos", id);
-
-      todo?.update();
+      const todo = schema.find("/todo", id);
+      todo?.update(newAttrs);
 
       return {};
     });
 
     this.delete("/todos/:id", (schema, request) => {
       const id = request.params.id;
-      
+
       const todo = schema.find("todo", id);
       todo?.destroy();
 
