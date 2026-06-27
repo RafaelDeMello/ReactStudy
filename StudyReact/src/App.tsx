@@ -11,7 +11,7 @@ TodoApi.create({ label: "task2", complete: false });
 
 TodoApi.getAll().then((data) => console.log("2", data));
 
-TodoApi.updateById("1", { label: "task3", complete: false });
+TodoApi.updateById("1", { label: "mudei", complete: false });
 
 TodoApi.getAll().then((data) => console.log("3", data));
 TodoApi.deleteById("1");
