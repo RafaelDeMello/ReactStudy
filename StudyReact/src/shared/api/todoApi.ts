@@ -21,9 +21,9 @@ export const TodoApi = {
   },
 
   async create(data: ItodoWithoutId){
-    const response = await axiosInstance.post('/api/todos', data)
-
-    return response.data.todo as ITodo
+     const response = await axiosInstance.post('/api/todos', data)
+     
+     return response.data.todo as ITodo
   },
 
   async updateById(id: string, data: Partial<ItodoWithoutId>) {
