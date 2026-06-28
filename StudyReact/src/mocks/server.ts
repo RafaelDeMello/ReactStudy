@@ -1,5 +1,6 @@
 import { createServer, Model, Factory } from "miragejs";
 
+
 createServer({
   models: {
     todos: Model,
@@ -13,38 +14,36 @@ createServer({
   },
 
   routes() {
-    this.namespace = 'api',
- 
-    this.get('/todos', (schema) => {
-      return schema.all('todos');
-    })
+    this.namespace = "api";
 
-    this.post('/todos', (schema, request) => {
-       const attrs = JSON.parse(request.requestBody);
+    this.get("/todos", (schema) => {
+      return schema.all("todos");
+    });
 
-       const todo = schema.create('todos', attrs);
+    (this.post("/todos", (schema, request) => {
+      const attrs = JSON.parse(request.requestBody);
 
-       return todo;
-    })
+      const todo = schema.create("todos", attrs);
 
-    this.put('/todos/:id', (schema, request) => {
-      const id = request.params.id;
+      return todo;
+    }),
+      this.put("/todos/:id", (schema, request) => {
+        const id = request.params.id;
 
-      const newAttrs = JSON.parse(request.requestBody);
+        const newAttrs = JSON.parse(request.requestBody);
 
-      const todo = schema.find('todos', id);
-      todo?.update(newAttrs);
-      
-      return {}
-    })
+        const todo = schema.find("todos", id);
+        todo?.update(newAttrs);
 
-    this.delete('/todos/:id', (schema, request) => {
-       const id = request.params.id;
+        return {};
+      }),
+      this.delete("/todos/:id", (schema, request) => {
+        const id = request.params.id;
 
-       const todo = schema.find('todos', id);
-       todo?.destroy()
+        const todo = schema.find("todos", id);
+        todo?.destroy();
 
-       return {}
-    })
+        return {};
+      }));
   },
 });
