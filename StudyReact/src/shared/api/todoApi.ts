@@ -8,7 +8,7 @@ export interface ITodo {
   complete: boolean;
 }
 
-export interface ITodoWithOut {
+interface ITodoWithOut {
   label: string;
   complete: boolean;
 }
@@ -27,7 +27,6 @@ export const TodoApi = {
   async updateById(id: string, data: Partial<ITodoWithOut>) {
     return await axiosInstance.put(`/api/todos/${id}`, data);
   },
-
   async deleteById(id: string) {
     return await axiosInstance.delete(`/api/todos/${id}`);
   },
