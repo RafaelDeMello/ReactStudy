@@ -25,7 +25,7 @@ export const TodoItem = ({
           V
         </button>
         <button className="border rounded-3xl px-3 m-2" onClick={onRemoveTask}>
-          F
+          X
         </button>
       </li>
       

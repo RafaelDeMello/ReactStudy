@@ -29,5 +29,5 @@ export const TodoApi = {
   },
   async deleteById(id: string) {
     return await axiosInstance.delete(`/api/todos/${id}`);
-  },
+  }
 };
