@@ -3,7 +3,7 @@ import { InputAdd } from "./componentes/Input";
 import { TodoItem } from "./componentes/todoItem";
 import { List } from "./componentes/List";
 
-import { TodoApi, type ITodo, type ITodoWithOut } from "./shared/api/todoApi";
+import { TodoApi, type ITodo } from "./shared/api/todoApi";
 
 // TodoApi.getAll().then((data) => console.log("1", data));
 
